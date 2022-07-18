@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apk kost</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="card">
+            <h1>JURAGAN KOST</h1>
+            Nama <br>
+            <input type="text" id="nama">
+            <br>
+
+            Orang <br>
+            <input type="number" id="orang">
+            <br>
+
+            Bulan <br>
+            <input type="number" id="bulan">
+            <br>
+
+            Pilih Kost <br>
+            <select id="jenis">
+                <option value="satu">pertama</option>
+                <option value="dua">kedua</option>
+            </select>
+            <br>
+            Pembayaran <label id="bayar">...</label>
+            <button onclick="cek()">hasil</button>
+        </div>
+    </section>
+</body>
+
+<style>
+    .container {
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .card {
+        padding: 20px;
+        background-color: rgb(242, 190, 126);
+    }
+
+    .card input {
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .card select {
+        border: none;
+        border-radius: 10px;
+    }
+
+    .card button {
+        border: none;
+        border-radius: 10px;
+    }
+</style>
+
+<script>
+    // kost satu = 1 bulan 500.000 | jika 1 kost 2 orang harga asli + 100
+    // kost dua = 1 bulan 700.000 
+    function cek() {
+        var jenis = document.getElementById('jenis').value;
+        var bulan = document.getElementById('bulan').value;
+        var orang = document.getElementById('orang').value;
+        var bayar;
+
+        if (orang > 1) {
+            if (jenis == 'satu') {
+                bayar = 500 * bulan + 200;
+            } else {
+                if (jenis == 'dua') {
+                    bayar = 700 * bulan + 200;
+                }
+            }
+        }
+        else {
+            if (jenis == 'satu') {
+                bayar = 500 * bulan;
+            } else {
+                if (jenis == 'dua') {
+                    bayar = 700 * bulan;
+                }
+            }
+        } document.getElementById('bayar').innerHTML = bayar;
+    }
+</script>
+
+</html>
